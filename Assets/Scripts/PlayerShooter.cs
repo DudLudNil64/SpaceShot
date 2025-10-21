@@ -13,8 +13,10 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetKey(Shot))
         {
             SpawnBullet(transform.position);
+            SpawnBullet(transform.position + new Vector3(1, 0, 0));
+            SpawnBullet(transform.position - new Vector3(1, 0, 0));
         }
-        
+
     }
 
     void SpawnBullet(Vector3 BulletOrigin)

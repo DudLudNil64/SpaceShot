@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(Left)) { MovmentVector += Vector3.left; }
         if (Input.GetKey(Right)) { MovmentVector += Vector3.right; }
 
-        transform.Translate(MovmentVector * (Time.deltaTime * 100));
+        transform.Translate(MovmentVector * (Time.deltaTime * 60));
 
         if (transform.position.x > PlayerArea.x) { transform.position = new Vector3(PlayerArea.x, transform.position.y, transform.position.z); }
         if (transform.position.x < -PlayerArea.x) { transform.position = new Vector3(-PlayerArea.x, transform.position.y, transform.position.z); }
