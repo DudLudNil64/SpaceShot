@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] KeyCode Left = KeyCode.D;
     [SerializeField] KeyCode Right = KeyCode.A;
 
+    public Vector3 PlayerArea;
 
     void Update()
     {
@@ -19,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(Left)) { MovmentVector += Vector3.left; }
         if (Input.GetKey(Right)) { MovmentVector += Vector3.right; }
 
-        transform.Translate(MovmentVector * (Time.deltaTime * 6));
+        transform.Translate(MovmentVector * (Time.deltaTime * 100));
+
+        if (transform.position.x > PlayerArea.x) { transform.position = new Vector3(PlayerArea.x, transform.position.y, transform.position.z); }
+        if (transform.position.x < -PlayerArea.x) { transform.position = new Vector3(-PlayerArea.x, transform.position.y, transform.position.z); }
+
+        if (transform.position.z > PlayerArea.z) { transform.position = new Vector3(transform.position.x, transform.position.y, PlayerArea.z); }
+        if (transform.position.z < -PlayerArea.z) { transform.position = new Vector3(transform.position.x, transform.position.y, -PlayerArea.z); }
     }
 }

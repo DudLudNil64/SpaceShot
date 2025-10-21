@@ -7,9 +7,10 @@ public class PlayerShooter : MonoBehaviour
 
     public GameObject Bullet;
 
+
     void Update()
     {
-        if (Input.GetKeyDown(Shot))
+        if (Input.GetKey(Shot))
         {
             SpawnBullet(transform.position);
         }
@@ -18,6 +19,6 @@ public class PlayerShooter : MonoBehaviour
 
     void SpawnBullet(Vector3 BulletOrigin)
     {
-        Instantiate();
+        Instantiate(Bullet, BulletOrigin, Quaternion.identity);
     }
 }
